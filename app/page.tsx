@@ -1,6 +1,10 @@
+'use client';
 import Image from 'next/image'
+import axios from 'axios'
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [beer, setBeer] = useState<any>(null);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
@@ -56,6 +60,25 @@ export default function Home() {
             Find in-depth information about Next.js features and API.
           </p>
         </a>
+        <button
+          onClick={() => {
+            axios.get('https://api.punkapi.com/v2/beers/random').then((res) => {
+              setBeer(res.data[0]);
+            })
+          }}
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+          rel="noopener noreferrer"
+        >
+          <h2 className={`mb-3 text-2xl font-semibold`}>
+            Random Beer{' '}
+            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              -&gt;
+            </span>
+          </h2>
+          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+            {beer?.name}
+          </p>
+        </button>
 
         <a
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
