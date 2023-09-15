@@ -1,14 +1,5 @@
-import Header from "./components/Header";
+import Header from "./Header";
 import "./globals.css";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Beer E-Commerce",
-  description: "Cheers to Choice: Sip, Shop, and Savor!",
-};
 
 export default function RootLayout({
   children,
@@ -17,8 +8,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Header />
-      <body className={inter.className}>{children}</body>
+      <body>
+        <Header />
+        <main className="m-auto p-4">{children}</main>
+      </body>
     </html>
   );
 }
