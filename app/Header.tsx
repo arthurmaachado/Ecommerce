@@ -13,9 +13,9 @@ function Header() {
         <div className="mt-2 flex flex-grow items-center px-2 sm:flex-grow-0">
           <Image
             src={CompanyLogo}
+            priority={true}
             width={80}
             height={30}
-            objectFit="contain"
             alt="Beer E-Commerce Logo"
             className="cursor-pointer"
           />
