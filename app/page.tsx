@@ -1,7 +1,9 @@
-// "use client";
+"use client";
 import Image from "next/image";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Head from "next/head";
+import Banner from "./components/Banner";
 
 export default function Home() {
   // const [beerList, setbeerList] = useState<any>(null);
@@ -51,6 +53,13 @@ export default function Home() {
     //     </button>
     //   </div>
     // </main>
-    <div> Site</div>
+    <div>
+      <Head>
+        <title>Beer E-commerce</title>
+      </Head>
+      <main className="mx-auto max-w-screen-2xl">
+        <Banner />
+      </main>
+    </div>
   );
 }
