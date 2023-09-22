@@ -53,7 +53,7 @@ export default function Home() {
     //     </button>
     //   </div>
     // </main>
-    <div>
+    <div className="bg-gray-100">
       <Head>
         <title>Beer E-commerce</title>
       </Head>

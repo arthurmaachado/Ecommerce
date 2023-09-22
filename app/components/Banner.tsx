@@ -10,8 +10,10 @@ class Banner extends Component {
   render(): React.ReactNode {
     return (
       <div className="relative">
+        <div className="absolute bottom-0 z-20 h-32 w-full bg-gradient-to-t from-gray-100 to-transparent" />
         <Carousel
           autoPlay
+          dynamicHeight
           infiniteLoop
           showStatus={false}
           showIndicators={false}
