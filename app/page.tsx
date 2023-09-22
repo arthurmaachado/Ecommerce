@@ -59,6 +59,7 @@ export default function Home() {
       </Head>
       <main className="mx-auto max-w-screen-2xl">
         <Banner />
+        <p>ALOOOO</p>
       </main>
     </div>
   );
