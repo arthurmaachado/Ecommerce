@@ -47,7 +47,7 @@ function Banner() {
   };
 
   return (
-    <div className="group relative m-auto h-[400px] w-full max-w-[1200px] px-4 py-6">
+    <div className="group relative m-auto h-[400px] w-full max-w-[1200px] px-1 py-6">
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
         className="h-full w-full rounded-2xl bg-cover bg-center duration-500"
