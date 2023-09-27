@@ -4,6 +4,8 @@ import { Key, useEffect, useState } from "react";
 import Head from "next/head";
 import Banner from "../components/Banner";
 import ProductCard from "@/components/ProductCard";
+import Link from "next/link";
+import ProductFeed from "@/components/ProductFeed";
 
 export default function Home() {
   const [beerList, setbeerList] = useState<any>(null);
@@ -34,38 +36,21 @@ export default function Home() {
               <p className="mb-6 max-w-2xl font-light text-gray-500 md:text-lg lg:mb-8 lg:text-xl">
                 Always the best beer selection for you
               </p>
-              <button
-                type="button"
-                className="mt-1.5 inline-block bg-EbonyClay px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
-              >
-                Explore Beer Collection
-              </button>
+              <Link href="/all-products">
+                <button
+                  type="button"
+                  className="mt-1.5 inline-block bg-EbonyClay px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
+                >
+                  Explore Beer Collection
+                </button>
+              </Link>
             </div>
             <div className="lg:col-span-5 lg:mt-0 lg:flex">
               <Banner />
             </div>
           </div>
         </section>
-
-        <div className="grid grid-cols-3">
-          {beerList?.map(
-            (beer: {
-              id: Key | null | undefined;
-              name: string;
-              description: string;
-              image_url: string;
-              srm: number;
-            }) => (
-              <ProductCard
-                key={beer.id}
-                name={beer.name}
-                description={beer.description}
-                image={beer.image_url}
-                price={beer.srm}
-              />
-            ),
-          )}
-        </div>
+        {beerList ? <ProductFeed {...beerList} /> : null}
       </main>
     </div>
   );

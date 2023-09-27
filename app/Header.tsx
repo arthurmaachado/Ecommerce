@@ -1,25 +1,27 @@
 import Image from "next/image";
 import CompanyLogo from "../public/CompanyLogo.png";
 import {
-  Bars3Icon,
   MagnifyingGlassIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 function Header() {
   return (
     <header>
       <div className="flex flex-grow items-center bg-EbonyClay p-1 py-2">
-        <div className="mt-2 flex flex-grow items-center px-2 sm:flex-grow-0">
-          <Image
-            src={CompanyLogo}
-            priority={true}
-            width={80}
-            height={30}
-            alt="Beer E-Commerce Logo"
-            className="cursor-pointer"
-          />
-        </div>
+        <Link href="/">
+          <div className="mt-2 flex flex-grow items-center px-2 sm:flex-grow-0">
+            <Image
+              src={CompanyLogo}
+              priority={true}
+              width={80}
+              height={30}
+              alt="Beer E-Commerce Logo"
+              className="cursor-pointer"
+            />
+          </div>
+        </Link>
         <div className="hidden h-10 flex-grow cursor-pointer items-center rounded-md bg-Tacao-light hover:bg-Tacao-dark sm:flex">
           <input
             type="text"
