@@ -1,20 +1,23 @@
 "use client";
 import axios from "axios";
-import { Key, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import Banner from "../components/Banner";
-import ProductCard from "@/components/ProductCard";
 import Link from "next/link";
 import ProductFeed from "@/components/ProductFeed";
 
 export default function Home() {
   const [beerList, setbeerList] = useState<any>(null);
-
   useEffect(() => {
     axios
-      .get("https://api.punkapi.com/v2/beers?per_page=25")
+      .get("https://api.punkapi.com/v2/beers?per_page=36")
       .then((res) => {
-        setbeerList(res.data);
+        const beerWithoutFilter = res.data;
+        const filteredBeer = beerWithoutFilter.filter(
+          (beer: any) =>
+            beer.image_url !== "https://images.punkapi.com/v2/keg.png",
+        );
+        setbeerList(filteredBeer);
       })
       .catch((err) => {
         console.log(err);
@@ -50,7 +53,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        {beerList ? <ProductFeed {...beerList} /> : null}
+        {beerList ? <ProductFeed {...beerList} itemsPerPage={10} /> : null}
       </main>
     </div>
   );

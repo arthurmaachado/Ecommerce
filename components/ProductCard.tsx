@@ -8,6 +8,17 @@ interface ProductCardProps {
 }
 
 export default function ProductCard(props: ProductCardProps) {
+  // If any of the props are undefined, return data from a different product
+  // This is a workaround for a bug in the Punk API since some beers com with price as null
+  if (
+    !props.id ||
+    !props.name ||
+    !props.description ||
+    !props.image ||
+    !props.price
+  ) {
+    return null;
+  }
   return (
     <div
       key={props.id}
