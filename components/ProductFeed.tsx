@@ -124,6 +124,7 @@ export default function ProductFeed(props: any) {
               description={beer.description}
               image={beer.image_url}
               price={beer.srm}
+              rating={beer.rating}
             />
           ))}
         </div>
@@ -141,8 +142,8 @@ export default function ProductFeed(props: any) {
           <button
             key={i}
             onClick={() => handlePageChange(i + 1)}
-            className={`ease-in-out" mx-1 mt-2 flex h-12 w-12 items-center justify-center rounded-full bg-Tacao-light p-0 text-sm text-white shadow-md transition duration-150 ${
-              currentPage === i + 1 ? "bg-Orange" : ""
+            className={`ease-in-out" mx-1 mt-2 flex h-12 w-12 items-center justify-center rounded-full p-0 text-sm text-white shadow-md transition duration-150 ${
+              currentPage === i + 1 ? "bg-Orange" : "bg-Tacao-light"
             }`}
           >
             {i + 1}

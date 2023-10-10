@@ -17,6 +17,10 @@ export default function Home() {
           (beer: any) =>
             beer.image_url !== "https://images.punkapi.com/v2/keg.png",
         );
+        // For each beer add a new property to the object called rating it will be a random number between 1 and 5
+        filteredBeer.forEach((beer: any) => {
+          beer.rating = Math.floor(Math.random() * 5) + 1;
+        });
         setbeerList(filteredBeer);
       })
       .catch((err) => {
