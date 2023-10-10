@@ -43,7 +43,7 @@ export default function Home() {
               <p className="mb-6 max-w-2xl font-light text-gray-500 md:text-lg lg:mb-8 lg:text-xl">
                 Always the best beer selection for you
               </p>
-              <Link href="/all-products">
+              <Link href="#beer-section">
                 <button
                   type="button"
                   className="mt-1.5 inline-block bg-EbonyClay px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
@@ -57,7 +57,9 @@ export default function Home() {
             </div>
           </div>
         </section>
-        {beerList ? <ProductFeed {...beerList} itemsPerPage={10} /> : null}
+        {beerList ? (
+          <ProductFeed id="beer-section" {...beerList} itemsPerPage={10} />
+        ) : null}
       </main>
     </div>
   );

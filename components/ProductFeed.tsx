@@ -19,6 +19,7 @@ const categories = [
 ];
 
 export default function ProductFeed(props: any) {
+  console.log(props);
   const handleRating = (e: any) => {
     console.log(e.target.value);
   };
@@ -115,7 +116,10 @@ export default function ProductFeed(props: any) {
             $200 & Above
           </h2>
         </div>
-        <div className="mx-auto grid grid-flow-row-dense gap-7 md:grid-cols-2 md:pl-6 lg:grid-cols-3 lg:pl-12">
+        <div
+          id={props.id}
+          className="mx-auto grid grid-flow-row-dense gap-7 md:grid-cols-2 md:pl-6 lg:grid-cols-3 lg:pl-12"
+        >
           {currentBeers.map((beer: any) => (
             <ProductCard
               id={beer.id}
