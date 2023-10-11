@@ -19,7 +19,6 @@ const categories = [
 ];
 
 export default function ProductFeed(props: any) {
-  console.log(props);
   const handleRating = (e: any) => {
     console.log(e.target.value);
   };
