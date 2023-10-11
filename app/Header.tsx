@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import CompanyLogo from "../public/CompanyLogo.png";
 import {
@@ -5,8 +6,11 @@ import {
   ShoppingCartIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 function Header() {
+  const session = useSession();
+
   return (
     <header>
       <div className="flex flex-grow items-center bg-EbonyClay p-1 py-2">
@@ -31,8 +35,13 @@ function Header() {
         </div>
 
         <div className="mx-6 flex items-center space-x-6 whitespace-nowrap text-xs text-white">
-          <div className="cursor-pointer hover:underline">
-            <p>Hello Arthur Machado</p>
+          <div
+            onClick={!session.data ? () => signIn() : () => signOut()}
+            className="cursor-pointer hover:underline"
+          >
+            <p>
+              {session.data ? `Hello, ${session.data.user?.name}` : `Sign In`}
+            </p>
             <p className="font-extrabold md:text-sm">Account & Lists</p>
           </div>
           <div className="cursor-pointer hover:underline">
